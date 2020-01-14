@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shurffle Playing Card</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<style type="text/css">
+		.surffle img{
+			height: 400px;
+			box-shadow: 0 5px 5px #ccc;
+		}
+	</style>
+</head>
+<body>
+
+<div class="container surffle py-3">
+	<div class="row">
+		<div class="col-4">
+			<img id="img-1" src="images/ace.png">
+		</div>	
+		<div class="col-4">
+			<img id="img-2" src="images/king.jpg">
+		</div>	
+		<div class="col-4">
+			<img id="img-3" src="images/heart2.png">
+		</div>	
+		<div class="col-md-12 py-4 text-center">
+			<button class="btn btn-primary" onclick="shurffle()">Shurffle</button>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+
+	function shurffle() {
+		var	images = ['ace.png','king.jpg','heart2.png'];
+    var total = images.length, name, index;
+
+    while (total > 0) {
+
+        index = Math.floor(Math.random() * total);
+		// Decrease total by 1
+        total--;
+        name = images[total];
+        images[total] = images[index];
+        images[index] = name;
+    }
+
+    // return images;
+	document.getElementById('img-1').src = 'images/' + images[0];
+	document.getElementById('img-2').src = 'images/' + images[1];
+	document.getElementById('img-3').src = 'images/' + images[2];
+}
+
+</script>
+</body>
+</html>
